@@ -1,8 +1,6 @@
-# React + Vite
+<h1>Main Scree</h1>
+<p>This is the main screen for now, will update this as soon as the functionality is implemented correctly,</p>
+<img src="./assests/main_screen.png alt="Main Screen"/>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>Cards</h2>
+<img src="./assests/card_screen.png alt="Card Screen"/>
