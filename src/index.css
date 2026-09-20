@@ -93,6 +93,17 @@ Buttons
     height: 100px;
     font-size: 3rem;
     border: 2px solid var(--light-primary);
+    background-color: var(--light-secondary);
+}
+
+.btn--emoji:not(:disabled):hover,
+.btn--emoji:not(:disabled):focus {
+    background-color: var(--accent);
+}
+
+.btn--emoji--matched {
+    background-color: var(--btn-disabled);
+    border-color: var(--btn-disabled);
 }
 
 .btn--text:hover,
@@ -100,6 +111,11 @@ Buttons
     background-color: var(--light-primary);
     color: var(--dark-primary);
     box-shadow: 0 0 5px 1px var(--dark-primary);
+}
+
+.btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
 }
 
 /*===========================
@@ -126,21 +142,88 @@ form {
     gap: .5em;
 }
 
-select {
-    background-color: var(--dark-primary);
+.custom-select {
+    position: relative;
+    min-width: 220px;
+}
+
+.custom-select__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: .65em .8em;
+    border: 1px solid rgba(8, 47, 73, .45);
+    border-radius: .6em;
+    background: var(--dark-primary);
     color: var(--light-primary);
-    font-family: inherit;
-    padding: .5em;
-    border: 1px solid var(--dark-primary);
-    border-radius: .5em;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+
+.custom-select__trigger:hover,
+.custom-select--open .custom-select__trigger,
+.custom-select__trigger:focus-visible {
+    background: #0d4263;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(253, 230, 138, .25);
+    outline: none;
+}
+
+.custom-select__chevron {
+    color: var(--accent);
+    font-size: 1.4em;
+    line-height: .7;
+    transition: transform .2s;
+}
+
+.custom-select--open .custom-select__chevron {
+    transform: rotate(180deg);
+}
+
+.custom-select__options {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + .45em);
+    right: 0;
+    left: 0;
+    padding: .35em;
+    margin: 0;
+    border: 1px solid rgba(240, 249, 255, .25);
+    border-radius: .7em;
+    background: #0b3b5b;
+    box-shadow: 0 12px 25px rgba(2, 15, 25, .35);
+    list-style: none;
+    animation: dropdown-in .15s ease-out;
+}
+
+.custom-select__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: .65em .7em;
+    border: 0;
+    border-radius: .45em;
+    background: transparent;
+    color: var(--light-primary);
+    font: inherit;
+    text-align: left;
     cursor: pointer;
 }
 
-select:hover,
-select:focus {
-    background-color: var(--light-primary);
+.custom-select__option:hover,
+.custom-select__option:focus-visible,
+.custom-select__option--selected {
+    background: var(--accent);
     color: var(--dark-primary);
-    box-shadow: 0 0 2px 1px var(--dark-primary);
+    outline: none;
+}
+
+@keyframes dropdown-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /*===========================
@@ -156,6 +239,26 @@ Game
 
 .card-item {
     list-style: none;
+}
+
+.scoreboard {
+    display: flex;
+    gap: 2em;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.error {
+    color: #fecaca;
+}
+
+.result {
+    align-items: center;
+    padding: 1.5em 2em;
+}
+
+.result h2 {
+    color: var(--dark-primary);
 }
 
 /* Animated memory card */
